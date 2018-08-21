@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
+import Boxes from './Boxes.js';
 
-export default class Column extends Component {
+class Column extends Component {
   render() {
     return (
-      <div>
+      <div className="column">
         <Boxes/>
+        IM INSIDE COLUMN
       </div>
     )
   }
 }
+
+export default Column; 

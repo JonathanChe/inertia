@@ -1,5 +1,8 @@
 import React, { Component} from "react";
-import "./App.css";
+import Main from './Main.js';
+import Column from './Column.js';
+import './../css/Column.css';
+import './../css/Main.css';
 
 class App extends Component {
   constructor(props) {
@@ -7,8 +10,10 @@ class App extends Component {
   }
 
   render(){
-    return(
+    return (
       <div className="App">
+        <Column />
+        <Main />
         <h1> Hello, World! </h1>
       </div>
     );
