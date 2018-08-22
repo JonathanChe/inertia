@@ -15,15 +15,7 @@ class App extends Component {
       url: '',
       qotd: {},
       weather: '',
-      todos: {
-        Mon: ['HELLLO WHAT DO I NEED TO DO'], // remove elements, build with database. 
-        Tues: [],
-        Wed: [],
-        Thurs: [],
-        Fri: [],
-        Sat: [],
-        Sun: [],
-      },
+      todos: [],
       display: false,
       dateToDisplay: null,
       todoInput: "Add your todo here!",
@@ -43,9 +35,8 @@ class App extends Component {
     const { todoInput, dateToDisplay } = this.state;
   
     axios.post('/yourdata', { todoInput, dateToDisplay }).then(response => {
-      console.log('response data ', response.data);
+      this.setState({ todos: response.data.todoList });
     })
-    // console.log('inside handleSubmit - ', this.state.todoInput)
     this.setState({todoInput: ''});
   }
 
@@ -57,6 +48,9 @@ class App extends Component {
   displayTodos(day) {
     // flip boolean everytime button is clicked. 
     let bool = !this.state.display
+    if (this.state.display === false) {
+      this.setState({ todos: [], todoInput: "Add your todo here!" });
+    }
     this.setState({ display: bool, dateToDisplay : day });
   }
 
@@ -80,8 +74,13 @@ class App extends Component {
       .catch(err => console.log('Error ', err));
 
       // axios call for data
-      axios.get('/').then(response => {
-        // console.log('AM I HERE???')
+      axios.get('/yourdata').then(response => {
+        // console.log('inside of axios get call of CDM')
+        // console.log(response.data)
+        // const { todoList } = response.data;
+        // console.log(todoList);
+        // this.setState({ todoList });
+                // console.log('AM I HERE???')
         // at the beginning of our program, our database has nothing. As we add our todos, databases get populated. 
         // const todos = {
         //   Mon: [],
