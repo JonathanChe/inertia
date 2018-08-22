@@ -9,10 +9,11 @@ import './../css/Boxes.css';
 |--------------------------------------------------
 */
 const Boxes = props => {
+  console.log(props.clickEvent)
   // each box will be a div element containing the class 'boxes' - specify the css rules for these boxes. 
   return (
     <div className="boxes">
-      {props.day}
+      <button onClick={() => props.clickEvent()}>{props.day}</button>
     </div>
   )
 }

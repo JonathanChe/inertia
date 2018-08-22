@@ -8,6 +8,11 @@
   },
   "author": "jonathanche",
   "license": "ISC",
+  "proxy": {
+    "/": {
+      "target": "http://localhost:3000"
+    }
+  },
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",

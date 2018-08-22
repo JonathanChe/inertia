@@ -15,7 +15,12 @@ class App extends Component {
       url: '',
       qotd: {},
       weather: '',
+      todoList: null,
     }
+    this.clickEvent = this.clickEvent.bind(this);
+  }
+
+  clickEvent() {
 
   }
 
@@ -37,12 +42,29 @@ class App extends Component {
       .then(res => res.json())
       .then(response => this.setState({ qotd: response.quote }))
       .catch(err => console.log('Error ', err));
+
+      // axios call for data
+      axios.get('/').then(response => {
+        // at the beginning of our program, our database has nothing. As we add our todos, databases get populated. 
+        const todos = {
+          Mon: [],
+          Tues: [],
+          Wed: [],
+          Thurs: [],
+          Friday: [],
+          Sat: [],
+          Sun: [],
+        };
+        console.log('inside get request of axios')
+        // if we see a the date we're going to using axios, to look through the database
+      // response.data refers to the array, inside array are objects. 
+      });
   }
   
   render(){
     return (
       <div className="App" style={{backgroundImage: `url(${this.state.url})`}} >
-        <Column />
+        <Column clickEvent={this.clickEvent} />
         <Main qotdAuthor={this.state.qotd.author} qotd={this.state.qotd.body} />
         <Weather weather={this.state.weather} />
       </div>
