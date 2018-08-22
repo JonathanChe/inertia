@@ -13,8 +13,8 @@ module.exports = function(app) {
   })
 
   // doesn't work below. 
-  app.post('/data', (req, res)  => {
-    console.log('data')
+  app.post('/yourdata', (req, res)  => {
+    console.log('request object inside of post', req.body)
   })
 }
 

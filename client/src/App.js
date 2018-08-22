@@ -16,14 +16,6 @@ class App extends Component {
       url: '',
       qotd: {},
       weather: '',
-      // todos: [ ['Mon', []],
-      //   ['Tues', [] ],
-      //   ['Wed', [] ],
-      //   ['Thurs', [] ],
-      //   ['Friday', [] ],
-      //   ['Sat', [] ],
-      //   ['Sun', [] ],
-      // ],
       todos: {
         Mon: [1,2,3,4,5], // remove elements, build with database. 
         Tues: [],
@@ -35,9 +27,23 @@ class App extends Component {
       },
       display: false,
       dateToDisplay: null,
+      todoInput: "Add your todo here!",
     }
     this.clickEvent = this.clickEvent.bind(this);
     this.displayTodos = this.displayTodos.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({todoInput: e.target.value})
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log('inside handleSubmit - ', this.state.todoInput)
+
+    this.setState({todoInput: ''});
   }
 
   clickEvent(e) {
@@ -64,7 +70,6 @@ class App extends Component {
     let bool = !this.state.display
     // flip boolean everytime button is clicked. 
     this.setState({ display: bool, dateToDisplay : day });
-    console.log('past state, ', bool)
   }
 
   componentDidMount() {
@@ -104,7 +109,7 @@ class App extends Component {
         // this.setState({ todos })
         // console.log(this.state)
 
-        console.log('inside get request of axios')
+        // console.log('inside get request of axios')
         // if we see a the date we're going to using axios, to look through the database
       // response.data refers to the array, inside array are objects. 
       });
@@ -121,6 +126,9 @@ class App extends Component {
           display={this.state.display}
           dateToDisplay={this.state.dateToDisplay}
           todos={this.state.todos}
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          todoInput={this.state.todoInput}
           />
         <Weather weather={this.state.weather} />
       </div>

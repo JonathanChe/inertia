@@ -15,7 +15,6 @@ const listofTodos = array => {
   const list = array.map((todo, i) => (
     <Spans deed={todo} keyid={i} />
   ))
-  console.log(list)
   return list; 
 }
 
@@ -25,21 +24,33 @@ const Spans = props => {
   // no testing done here
   return (
     <div>
-      <span>
+      <ul>
+        <li>
         {props.keyid + 1} - {props.deed}
-      </span>
+        </li>
+      </ul>
+    </div>
+  )
+}
+
+const InputTodoContainer = props => {
+  console.log('inside inputtodocontainer ', props);
+  return (
+    <div>
+      <form onSubmit={e => props.handleSubmit(e)}>
+        <input id="inputs" type="text" value={props.todoInput} onChange={(e) => props.handleChange(e)}></input>
+      </form>
     </div>
   )
 }
 
 const Display = props => {
-  // console.log(props.todos['Mon']);
   let table;
   if (props.display === true && props.dateToDisplay !== null) {
-    table = <div className="todosDisplay"> {listofTodos(props.todos[props.dateToDisplay])} </div>
+    table = <div className="todosDisplay"> {listofTodos(props.todos[props.dateToDisplay])} <InputTodoContainer handleSubmit={props.handleSubmit} handleChange={props.handleChange} todoInput={props.todoInput}/> </div>
   } else {
     // possibly change here?
-    table = null;
+    table = <div id="title">Set your Todos List!</div>;
   }
 
   return (

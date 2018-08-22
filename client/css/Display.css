@@ -11,7 +11,33 @@
   width: 100%;
   border: 1px solid white;
   border-radius: 10px;
-  background-color: white;
-  opacity: 0.35;
+  background-color: rgba(220,220,220, 0.6);
   color: black;
+  overflow: scroll;
+}
+
+li {
+  border: 2.5px solid royalblue;
+  border-radius: 5px;
+  width: 90%;
+  line-height: 2.5rem;
+  font-size: 2.5rem;
+  color: black;
+  font-weight: bold;
+}
+
+#title {
+  text-align: center;
+  font-size: 5rem;
+  padding-top: 35%;
+}
+
+input {
+  margin: 5%;
+  width: 85%;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+  border : 1px solid rgba(0,0,0,0.1);
+  height: 2rem;
+  color: black;
+  font-size: 2rem;
 }

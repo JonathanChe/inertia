@@ -19,6 +19,9 @@ class Main extends Component {
           display={this.props.display}
           dateToDisplay={this.props.dateToDisplay}
           todos={this.props.todos}
+          handleSubmit={this.props.handleSubmit}
+          handleChange={this.props.handleChange}
+          todoInput={this.props.todoInput}
           />
         <Quote qotd={this.props.qotd} qotdAuthor={this.props.qotdAuthor}/>
       </div>
