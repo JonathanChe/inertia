@@ -1,14 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-/**
-|--------------------------------------------------
-| this will be a pure function that will display the todos selected. 
-|--------------------------------------------------
-*/
-
-// here i need to make an input list in the div, space it out and append it to the todolist
-// need to create seperate little spans in the div for the individual todos. 
 
 const listofTodos = array => {
   // console.log(array)
@@ -17,8 +7,6 @@ const listofTodos = array => {
   ))
   return list; 
 }
-
-// for the todo lists.
 
 const Spans = props => {
   // no testing done here

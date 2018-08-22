@@ -7,7 +7,6 @@ import './../css/Column.css';
 import './../css/Main.css';
 import './../css/Weather.css';
 import './../css/App.css';
-import { SSL_OP_CRYPTOPRO_TLSEXT_BUG } from "constants";
 
 class App extends Component {
   constructor(props) {
@@ -17,7 +16,7 @@ class App extends Component {
       qotd: {},
       weather: '',
       todos: {
-        Mon: [1,2,3,4,5], // remove elements, build with database. 
+        Mon: ['HELLLO WHAT DO I NEED TO DO'], // remove elements, build with database. 
         Tues: [],
         Wed: [],
         Thurs: [],
@@ -41,34 +40,23 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('inside handleSubmit - ', this.state.todoInput)
-
+    const { todoInput, dateToDisplay } = this.state;
+  
+    axios.post('/yourdata', { todoInput, dateToDisplay }).then(response => {
+      console.log('response data ', response.data);
+    })
+    // console.log('inside handleSubmit - ', this.state.todoInput)
     this.setState({todoInput: ''});
   }
 
   clickEvent(e) {
-    // edge-case: check to see if the todoLIst is null - if so, gotta do something 
     const daysOfTheWeek = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
-    // figure out which day is being passed in 
-    // this can be refactored, tired and unable to think of better solutions. 
-    switch(daysOfTheWeek[e]) {
-      case 'Mon':
-      case 'Tues':
-      case 'Wed':
-      case 'Thurs':
-      case 'Fri':
-      case 'Sat':
-      case 'Sun':
-      // show nothing if nothing selected. 
-      default: null;
-    // pass the ith element as an argument to display the todos list. 
-    }
     this.displayTodos(daysOfTheWeek[e.target.id]);
   }
 
   displayTodos(day) {
-    let bool = !this.state.display
     // flip boolean everytime button is clicked. 
+    let bool = !this.state.display
     this.setState({ display: bool, dateToDisplay : day });
   }
 

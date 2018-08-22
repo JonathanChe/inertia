@@ -16,13 +16,3 @@ app.use(express.static('build'));
 router(app);
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
-
-
-/**  not used yet 
-|--------------------------------------------------
-|  
-// app.use(express.static(path.join(__dirname, '/client/public')));
-// app.use('/', express.static(path.join(__dirname, "/client/public/index.html"))); //serves the index.html
-| 
-|--------------------------------------------------
-*/

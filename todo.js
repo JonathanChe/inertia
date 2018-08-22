@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 const todoSchema = new mongoose.Schema({
-  day: { type: String, required: true },
+  dateToDisplay: { type: String, required: true },
   todoList: [],
 })
 
