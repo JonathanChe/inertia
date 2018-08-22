@@ -8,8 +8,10 @@ import PropTypes from 'prop-types';
 */
 const Display = props => {
   return (
-    <div>
-      IM INSIDE DISPLAY.
+    <div id="display-container">
+      <div className="todosDisplay">
+        
+      </div>
     </div>
   )
 }

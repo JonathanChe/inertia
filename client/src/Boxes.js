@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './../css/Boxes.css';
 
 /**
 |--------------------------------------------------
@@ -8,12 +9,10 @@ import PropTypes from 'prop-types';
 |--------------------------------------------------
 */
 const Boxes = props => {
-  const daysOfTheWeek = ['M', 'T', 'W', 'Th', 'F', 'S', 'Sun'];
-  // map over the above and get a new array to explode on the page. 
   // each box will be a div element containing the class 'boxes' - specify the css rules for these boxes. 
   return (
-    <div>
-      IM HEREEE
+    <div className="boxes">
+      {props.day}
     </div>
   )
 }

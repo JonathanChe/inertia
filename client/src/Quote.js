@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 */
 const Quote = props => {
   return (
-    <div>
+    <div id="quote">
       IM INSIDE QUOTE
     </div>
   )

@@ -13,6 +13,7 @@
   "author": "jonathan che",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-loader": "^7.1.5",
     "body-parser": "^1.18.3",
     "css-loader": "^1.0.0",
@@ -23,6 +24,7 @@
     "mongoose": "^5.2.9",
     "nodemon": "^1.18.3",
     "react": "^16.4.2",
+    "react-live-clock": "^2.0.3",
     "style-loader": "^0.22.1",
     "webpack-cli": "^3.1.0"
   },

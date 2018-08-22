@@ -1,15 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Clock from 'react-live-clock';
 
 /**
 |--------------------------------------------------
-| this will be a pure function that will display the time. 
+| this will be a pure function that displays the time.
+| No props needed here.  
 |--------------------------------------------------
 */
 const Time = props => {
   return (
-    <div>
-      IM INSIDE TIME
+    <div id="time">
+       <Clock format={'HH:mm'} ticking={true} timezone={'US/Pacific'} />
     </div>
   )
 }
