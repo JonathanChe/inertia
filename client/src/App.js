@@ -20,8 +20,9 @@ class App extends Component {
     this.clickEvent = this.clickEvent.bind(this);
   }
 
-  clickEvent() {
-
+  clickEvent(e) {
+    // if (e.target.keyid)
+    console.log(e.target.id);
   }
 
   componentDidMount() {

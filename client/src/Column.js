@@ -11,7 +11,7 @@ class Column extends Component {
     const daysOfTheWeek = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
     // map over the above and get a new array to explode on the page. 
     const days = daysOfTheWeek.map((day, i) => (
-      <Boxes clickEvent={this.props.clickEvent} className="boxes" key={i} day={day} />
+      <Boxes clickEvent={this.props.clickEvent} className="boxes" id={i} key={day + i} day={day} />
     ));
 
     return (
