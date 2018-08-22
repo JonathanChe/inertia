@@ -31,8 +31,9 @@ const InputTodoContainer = props => {
 
 const Display = props => {
   let table;
+  console.log('inside of display - props ', props.todos);
   if (props.display === true && props.dateToDisplay !== null) {
-    table = <div className="todosDisplay"> {listofTodos(props.todos)} <InputTodoContainer handleSubmit={props.handleSubmit} handleChange={props.handleChange} todoInput={props.todoInput}/> </div>
+    table = <div className="todosDisplay"> {listofTodos(props.todos)} <InputTodoContainer handleSubmit={props.handleSubmit} handleChange={props.handleChange} todoInput={props.todoInput}/>  </div>
   } else {
     table = <div id="title">Set your Todos List!</div>;
   }

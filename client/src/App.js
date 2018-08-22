@@ -42,15 +42,25 @@ class App extends Component {
 
   clickEvent(e) {
     const daysOfTheWeek = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
-    this.displayTodos(daysOfTheWeek[e.target.id]);
+    const clickedDay = daysOfTheWeek[e.target.id]
+    // do get request here so you can populate the list
+    axios.get('/yourdata').then(response => {
+      for (let i = 0; i < response.data.length; i++) {
+        if (clickedDay === response.data[i].dateToDisplay) {
+          this.setState({ todos: response.data[i].todoList})
+        }
+      }
+    })
+    this.displayTodos(clickedDay);
   }
 
   displayTodos(day) {
     // flip boolean everytime button is clicked. 
     let bool = !this.state.display
     if (this.state.display === false) {
+      // reinitialize values. 
       this.setState({ todos: [], todoInput: "Add your todo here!" });
-    }
+    } 
     this.setState({ display: bool, dateToDisplay : day });
   }
 
