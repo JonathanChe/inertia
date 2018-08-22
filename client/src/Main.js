@@ -10,13 +10,13 @@ class Main extends Component {
   constructor(props) {
     super(props);
   }
-
+  // qotdAuthor={this.props.qotd.author} qotd={this.props.qotd.body}
   render() {
     return (
       <div className="main">
         <Time />
         <Display />
-        <Quote />
+        <Quote qotd={this.props.qotd} qotdAuthor={this.props.qotdAuthor}/>
       </div>
     )
   

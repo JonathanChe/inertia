@@ -1,8 +1,10 @@
 .boxes {
   height: 14%;
   width: 100%;
-  border: 1px solid blue;
+  border: 1px solid white;
+  background-color: gray;
   display: flex;
   justify-content: center; 
   align-items: center;
+  font-size: 5rem;
 }
