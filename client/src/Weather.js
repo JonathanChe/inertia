@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 const Weather = props => {
-    return (
-      <div id="weather">
-        IM THE WEATHER
-      </div>
-    )
+  return (
+    <div id="weather">
+      {props.weather}°
+    <br/>
+      Los Angeles
+    </div>
+  )
 }
 
 export default Weather

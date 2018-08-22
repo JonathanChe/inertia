@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       url: '',
       qotd: {},
+      weather: '',
     }
 
   }
@@ -24,6 +25,12 @@ class App extends Component {
       .then(res => res.json())
       .then(response => this.setState({ url: response.url }))
       .catch(err => console.log('ERROR ', err))
+      
+    // Weather API call
+    fetch('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/a3e04a7bf3b7e7e44fede6fc91b36c44/34.0522,-118.2437')
+      .then(res => res.json())
+      .then(response => this.setState({ weather: response.currently.apparentTemperature.toFixed(0) }))
+      .catch(err => console.log('Error ', err));
 
     // QOTD API Call
     fetch('https://favqs.com/api/qotd')
@@ -37,7 +44,7 @@ class App extends Component {
       <div className="App" style={{backgroundImage: `url(${this.state.url})`}} >
         <Column />
         <Main qotdAuthor={this.state.qotd.author} qotd={this.state.qotd.body} />
-        <Weather />
+        <Weather weather={this.state.weather} />
       </div>
     );
   }
