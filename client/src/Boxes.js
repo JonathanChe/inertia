@@ -13,7 +13,7 @@ const Boxes = props => {
   // each box will be a div element containing the class 'boxes' - specify the css rules for these boxes. 
   return (
     <div>
-      IM INSIDE BOXES
+      IM HEREEE
     </div>
   )
 }

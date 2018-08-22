@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 const Display = props => {
   return (
     <div>
-      IM INSIDE DISPLAY
+      IM INSIDE DISPLAY.
     </div>
   )
 }
