@@ -9,5 +9,9 @@
   margin-top: 5%;
   height: 100%;
   width: 100%;
-  border: 1px solid red;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: white;
+  opacity: 0.35;
+  color: black;
 }

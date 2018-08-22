@@ -25,7 +25,7 @@ class App extends Component {
       //   ['Sun', [] ],
       // ],
       todos: {
-        Mon: [],
+        Mon: [1,2,3,4,5], // remove elements, build with database. 
         Tues: [],
         Wed: [],
         Thurs: [],
