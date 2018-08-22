@@ -7,6 +7,7 @@ import './../css/Column.css';
 import './../css/Main.css';
 import './../css/Weather.css';
 import './../css/App.css';
+import { SSL_OP_CRYPTOPRO_TLSEXT_BUG } from "constants";
 
 class App extends Component {
   constructor(props) {
@@ -15,14 +16,55 @@ class App extends Component {
       url: '',
       qotd: {},
       weather: '',
-      todoList: null,
+      // todos: [ ['Mon', []],
+      //   ['Tues', [] ],
+      //   ['Wed', [] ],
+      //   ['Thurs', [] ],
+      //   ['Friday', [] ],
+      //   ['Sat', [] ],
+      //   ['Sun', [] ],
+      // ],
+      todos: {
+        Mon: [],
+        Tues: [],
+        Wed: [],
+        Thurs: [],
+        Fri: [],
+        Sat: [],
+        Sun: [],
+      },
+      display: false,
+      dateToDisplay: null,
     }
     this.clickEvent = this.clickEvent.bind(this);
+    this.displayTodos = this.displayTodos.bind(this);
   }
 
   clickEvent(e) {
-    // if (e.target.keyid)
-    console.log(e.target.id);
+    // edge-case: check to see if the todoLIst is null - if so, gotta do something 
+    const daysOfTheWeek = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
+    // figure out which day is being passed in 
+    // this can be refactored, tired and unable to think of better solutions. 
+    switch(daysOfTheWeek[e]) {
+      case 'Mon':
+      case 'Tues':
+      case 'Wed':
+      case 'Thurs':
+      case 'Fri':
+      case 'Sat':
+      case 'Sun':
+      // show nothing if nothing selected. 
+      default: null;
+    // pass the ith element as an argument to display the todos list. 
+    }
+    this.displayTodos(daysOfTheWeek[e.target.id]);
+  }
+
+  displayTodos(day) {
+    let bool = !this.state.display
+    // flip boolean everytime button is clicked. 
+    this.setState({ display: bool, dateToDisplay : day });
+    console.log('past state, ', bool)
   }
 
   componentDidMount() {
@@ -46,16 +88,22 @@ class App extends Component {
 
       // axios call for data
       axios.get('/').then(response => {
+        // console.log('AM I HERE???')
         // at the beginning of our program, our database has nothing. As we add our todos, databases get populated. 
-        const todos = {
-          Mon: [],
-          Tues: [],
-          Wed: [],
-          Thurs: [],
-          Friday: [],
-          Sat: [],
-          Sun: [],
-        };
+        // const todos = {
+        //   Mon: [],
+        //   Tues: [],
+        //   Wed: [],
+        //   Thurs: [],
+        //   Friday: [],
+        //   Sat: [],
+        //   Sun: [],
+        // };
+        
+        // temp for now for testing, need to build up further with database. 
+        // this.setState({ todos })
+        // console.log(this.state)
+
         console.log('inside get request of axios')
         // if we see a the date we're going to using axios, to look through the database
       // response.data refers to the array, inside array are objects. 
@@ -66,7 +114,14 @@ class App extends Component {
     return (
       <div className="App" style={{backgroundImage: `url(${this.state.url})`}} >
         <Column clickEvent={this.clickEvent} />
-        <Main qotdAuthor={this.state.qotd.author} qotd={this.state.qotd.body} />
+        <Main 
+          displayTodos={this.displayTodos} 
+          qotdAuthor={this.state.qotd.author} 
+          qotd={this.state.qotd.body} 
+          display={this.state.display}
+          dateToDisplay={this.state.dateToDisplay}
+          todos={this.state.todos}
+          />
         <Weather weather={this.state.weather} />
       </div>
     );

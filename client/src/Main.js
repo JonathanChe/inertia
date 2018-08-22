@@ -10,12 +10,16 @@ class Main extends Component {
   constructor(props) {
     super(props);
   }
-  // qotdAuthor={this.props.qotd.author} qotd={this.props.qotd.body}
   render() {
     return (
       <div className="main">
         <Time />
-        <Display />
+        <Display 
+          displayTodos={this.props.displayTodos}
+          display={this.props.display}
+          dateToDisplay={this.props.dateToDisplay}
+          todos={this.props.todos}
+          />
         <Quote qotd={this.props.qotd} qotdAuthor={this.props.qotdAuthor}/>
       </div>
     )
