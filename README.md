@@ -1,1 +1,1 @@
-Solo project in process.
+Intertia - Task Management Application
